@@ -46,3 +46,4 @@ void PrintManager::PrintStubMessage(char i)
 		cout << "Error! No such query. Please try again." << endl;
 	}
 }
+	

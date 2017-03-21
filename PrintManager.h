@@ -1,5 +1,7 @@
 #ifndef PRINTMANAGER_H
 #define PRINTMANAGER_H
+//WLSGRA012
+
 
 class PrintManager
 {
@@ -9,5 +11,6 @@ class PrintManager
 		static void PrintPrompt();
 		static void PrintStubMessage(char i);
 };
+	
 
 #endif
