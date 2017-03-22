@@ -9,7 +9,7 @@ class PrintManager
 		static void PrintUI();
 		static void PrintHelloMessage();
 		static void PrintPrompt();
-		static void PrintStubMessage(char i);
+		static void PrintStubMessage(std::string i);
 };
 	
 

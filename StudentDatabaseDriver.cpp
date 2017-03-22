@@ -10,28 +10,27 @@ bool inFunction;
 
 int main()
 {
-	char answer = 0;
+	char answer[100];
 	int i;
 	
 	PrintManager::PrintHelloMessage();
 	
 	for (;;){
 		//prints out the users unteractive options
-		// PrintManager::PrintUI(); 
+		PrintManager::PrintUI(); 
 
 		//get user input
-		// PrintManager::PrintPrompt();
-		cin >> answer;
-		if (answer == 'q'){
+		PrintManager::PrintPrompt();
+		cin.getline(answer, 10);
+		if (answer == "q"){
 			break;
 		}
 		
 		//print stub message
-		// PrintManager::PrintStubMessage(answer);
+		PrintManager::PrintStubMessage(answer);
 
 		//evoke action requested
-		// envokeFunction(answer);
-		cout << "hello world" << endl;
+		//envokeFunction(answer);
 		
 	}
 		
