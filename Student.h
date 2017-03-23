@@ -15,6 +15,7 @@ namespace WLSGRA012 {
 			void SetSurname(string surname_);
 			void SetStudentNumber(string studentNumber_);
 			void SetClassRecord(string classRecord_);
+			bool CompareTo(Student t);
 
 			string GetName();
 			string GetSurname();

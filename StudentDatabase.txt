@@ -1,8 +1,2 @@
-<w, w, w, w>
-<w, w, w, w>
-<w, w, w, w>
-<w, w, w, w>
-<d, d, dd, d>
-<w, w, w, w>
-<d, d, dd, d>
-<grant, wilson, 43, 34>
+g g g g .
+g g g g .

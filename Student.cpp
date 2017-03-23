@@ -13,7 +13,6 @@ WLSGRA012::Student::Student(string name_, string surname_, string studentNumber_
 	SetSurname(surname_);
 	SetStudentNumber(studentNumber_);
 	SetClassRecord(classRecord_);
-	cout << GetName() << endl << GetSurname() << endl << GetStudentNumber() << endl << GetClassRecord() << endl; 
 }
 
 //setters
@@ -31,6 +30,11 @@ void WLSGRA012::Student::SetStudentNumber(string studentNumber_){
 
 void WLSGRA012::Student::SetClassRecord(string classRecord_){
 	classRecord = classRecord_;
+}
+
+bool WLSGRA012::Student::CompareTo(WLSGRA012::Student t){
+	//will return true if the name, surname and the student number are the same
+	return GetName() == t.GetName() && GetSurname() == t.GetSurname() && GetStudentNumber() == t.GetStudentNumber();
 }
 
 //getters
@@ -53,6 +57,6 @@ string WLSGRA012::Student::GetClassRecord(){
 string WLSGRA012::Student::GetInfo(){
 	//to string of object values
 	stringstream ss;
-	ss << "<" << GetName() << ", " << GetSurname() << ", " << GetStudentNumber() << ", " << GetClassRecord() << ">";
+	ss << GetName() << " " << GetSurname() << " " << GetStudentNumber() << " " << GetClassRecord() << " .";
 	return ss.str();
 }

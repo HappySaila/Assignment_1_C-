@@ -14,6 +14,7 @@ void WLSGRA012::PrintManager::PrintUI()
 	cout << "2: Save database" << endl;
 	cout << "3: Display given student data" << endl;
 	cout << "4: Grade Student" << endl;
+	cout << "5: Erase all data in database" << endl;
 	cout << "q: Quit" << endl;
 }
 
@@ -46,6 +47,8 @@ void WLSGRA012::PrintManager::PrintStubMessage(string i)
 		cout << "Function DisplayGivenStudent() called." << endl;
 	} else if (i == "4"){
 		cout << "Function GradeStudent() called." << endl;
+	} else if (i == "5"){
+		cout << "Function ClearData() called." << endl;
 	} else if (i == "q"){
 		cout << "Thank you for using student database version 1000203.1302.2.1." << endl << "Goodbye!" << endl;
 	} else{
