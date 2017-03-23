@@ -8,7 +8,7 @@
 using namespace std;
 
 //constructor
-Student::Student(string name_, string surname_, string studentNumber_, string classRecord_){
+WLSGRA012::Student::Student(string name_, string surname_, string studentNumber_, string classRecord_){
 	SetName(name_);
 	SetSurname(surname_);
 	SetStudentNumber(studentNumber_);
@@ -17,40 +17,40 @@ Student::Student(string name_, string surname_, string studentNumber_, string cl
 }
 
 //setters
-void Student::SetName(string name_){
+void WLSGRA012::Student::SetName(string name_){
 	name = name_;
 }
 
-void Student::SetSurname(string surname_){
+void WLSGRA012::Student::SetSurname(string surname_){
 	surname = surname_;
 }
 
-void Student::SetStudentNumber(string studentNumber_){
+void WLSGRA012::Student::SetStudentNumber(string studentNumber_){
 	studentNumber = studentNumber_;
 }
 
-void Student::SetClassRecord(string classRecord_){
+void WLSGRA012::Student::SetClassRecord(string classRecord_){
 	classRecord = classRecord_;
 }
 
 //getters
-string Student::GetName(){
+string WLSGRA012::Student::GetName(){
 	return name;
 }
 
-string Student::GetSurname(){
+string WLSGRA012::Student::GetSurname(){
 	return surname;
 }
 
-string Student::GetStudentNumber(){
+string WLSGRA012::Student::GetStudentNumber(){
 	return studentNumber;
 }
 
-string Student::GetClassRecord(){
+string WLSGRA012::Student::GetClassRecord(){
 	return classRecord;
 }
 
-string Student::GetInfo(){
+string WLSGRA012::Student::GetInfo(){
 	//to string of object values
 	stringstream ss;
 	ss << "<" << GetName() << ", " << GetSurname() << ", " << GetStudentNumber() << ", " << GetClassRecord() << ">";

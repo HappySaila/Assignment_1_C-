@@ -1,46 +1,48 @@
 //Driver of the student database program
 //WLSGRA012
 #include <iostream>
+#include "cstdlib"
 #include "PrintManager.h"
 #include "Student.h"
 
 using namespace std;
-void envokeFunction(int i);
+void envokeFunction(string i);
 bool inFunction;
 
 int main()
 {
-	char answer[100];
+	string answer;
 	int i;
-	
-	PrintManager::PrintHelloMessage();
-	
+
+	WLSGRA012::PrintManager::PrintHelloMessage();
+
 	for (;;){
 		//prints out the users unteractive options
-		PrintManager::PrintUI(); 
+		WLSGRA012::PrintManager::PrintUI();
 
 		//get user input
-		PrintManager::PrintPrompt();
-		cin.getline(answer, 10);
+		WLSGRA012::PrintManager::PrintPrompt();
+		getline(cin, answer);
+
 		if (answer == "q"){
 			break;
 		}
-		
+
 		//print stub message
-		PrintManager::PrintStubMessage(answer);
+		WLSGRA012::PrintManager::PrintStubMessage(answer);
 
 		//evoke action requested
-		//envokeFunction(answer);
-		
+		envokeFunction(answer);
+
 	}
-		
+
 	return 0;
 }
 
-void envokeFunction(int i)
+void envokeFunction(string i)
 {
 	//envokes query user specified
-	if (i == '0'){
+	if (i == "0"){ //compare strings, will equal 0 if true
 		//Add a student ~ called
 		//instantiate variables
 		string name_;
@@ -50,20 +52,25 @@ void envokeFunction(int i)
 
 		//prompt and get variables from the user
 		cout << endl << endl << "Enter Student Name:" << endl;
-		cin >> name_;
+		getline(cin, name_);
 
 		cout << "Enter Student Surname:" << endl;
-		cin >> surname_;
+		getline(cin, surname_);
 
 		cout << "Enter Student Number:" << endl;
-		cin >> studentNumber_;
+		getline(cin, studentNumber_);
 
 		cout << "Enter Class Record" << endl;
-		cin >> classRecord_;
+		getline(cin, classRecord_);
 
 		//create student object
-		Student s(name_, surname_, studentNumber_, classRecord_);
-		cout << endl << "Student:" << s.GetInfo() << " added" << endl; 
+		WLSGRA012::Student s(name_, surname_, studentNumber_, classRecord_);
+		system("clear");
+		cout << "-----------------------------------------------------" << endl;
+		cout << "Student:" << s.GetInfo() << " added" << endl;
+		cout << "-----------------------------------------------------" << endl;
+	} else {
+		cout << "not called" << endl;
 	}
 	// } else if (i == '1'){
 	// 	cout << "Function ReadDatabase() called." << endl;
@@ -80,4 +87,4 @@ void envokeFunction(int i)
 	// 	cout << "Error! No such query. Please try again." << endl;
 	// }
 }
-	
+

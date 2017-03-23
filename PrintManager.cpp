@@ -2,10 +2,11 @@
 //WLSGRA012
 #include <iostream>
 #include "PrintManager.h"
+#include "cstdlib"
 
 using namespace std;
 
-void PrintManager::PrintUI()
+void WLSGRA012::PrintManager::PrintUI()
 {
 	//will print all functions the user can access
 	cout << "0: Add student" << endl;
@@ -16,18 +17,24 @@ void PrintManager::PrintUI()
 	cout << "q: Quit" << endl;
 }
 
-void PrintManager::PrintHelloMessage()
+void WLSGRA012::PrintManager::PrintHelloMessage()
 {
+	system("clear");
+	cout << "-----------------------------------------------------" << endl;
 	cout << "Welcome to student database version 1000203.1302.2.1." << endl;
+	cout << "-----------------------------------------------------" << endl;
 }
 
-void PrintManager::PrintPrompt()
+void WLSGRA012::PrintManager::PrintPrompt()
 {
 	cout << "Enter a number (or q to quit) and press return..." << endl;
+	cout << "-----------------------------------------------------" << endl;
 }
 
-void PrintManager::PrintStubMessage(string i)
+void WLSGRA012::PrintManager::PrintStubMessage(string i)
 {
+	system("clear");
+	cout << "-----------------------------------------------------" << endl;
 	//let the user know which function they have called
 	if (i == "0"){
 		cout << "Function AddStudent() called." << endl;
@@ -45,5 +52,6 @@ void PrintManager::PrintStubMessage(string i)
 		//i does not equal 0,1,2,3, or 4. Throw an error
 		cout << "Error! No such query. Please try again." << endl;
 	}
+	cout << "-----------------------------------------------------" << endl;
 }
 	
