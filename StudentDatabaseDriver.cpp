@@ -42,6 +42,10 @@ int main()
 		getline(cin, answer);
 
 		if (answer == "q"){
+			system("clear");
+			printUILine();
+			envokeFunction(answer);
+			printUILine();
 			break;
 		}
 
@@ -141,14 +145,10 @@ void envokeFunction(string i)
 	 		gradeStudent(s);
 	 	}
 	} else if (i == "5"){
-		ClearDatabase();
-	} 
-	//else if (i == 'q'){
-	// 	cout << "Thank you for using student database version 1000203.1302.2.1." << endl << "Goodbye!" << endl;
-	// } else{
-	// 	//i does not equal 0,1,2,3, or 4. Throw an error
-	// 	cout << "Error! No such query. Please try again." << endl;
-	// }
+		ClearDatabase(); 
+	} else if (i == "q"){
+		cout << "Thank you for using student database version 1000203.1302.2.1." << endl << "Goodbye!" << endl;
+	}
 }
 
 WLSGRA012::Student findStudent(string studentNumber){
