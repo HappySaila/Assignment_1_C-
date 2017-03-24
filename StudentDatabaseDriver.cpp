@@ -7,6 +7,7 @@
 #include "PrintManager.h"
 #include "Student.h"
 
+
 using namespace std;
 //prototype methods
 void envokeFunction(string i);
@@ -15,6 +16,8 @@ void printUILine();
 vector<string> getDatabaseContent();
 void writeDataToFile();
 void ClearDatabase();
+void gradeStudent(WLSGRA012::Student);
+WLSGRA012::Student findStudent(string studentNumber);
 
 //variables
 vector<WLSGRA012::Student> temporyStudents;
@@ -121,8 +124,22 @@ void envokeFunction(string i)
 			printUILine();
 		}
 
-	// } else if (i == '4'){
-	// 	cout << "Function GradeStudent() called." << endl;
+	} else if (i == "4"){
+	 	cout << "Enter the student number you want to grade: " << endl;
+	 	string studentNumberToGrade;
+	 	getline(cin, studentNumberToGrade);
+	 	WLSGRA012::Student s = findStudent(studentNumberToGrade);
+	 	if (s.GetStudentNumber() == ""){
+	 		//student was not found
+	 		system("clear");
+	 		printUILine();
+	 		cout << "Student was not found with the student number <" << studentNumberToGrade << ">." <<endl;
+	 		printUILine();
+	 		return;
+	 	} else {
+	 		//student was found. Grade the student
+	 		gradeStudent(s);
+	 	}
 	} else if (i == "5"){
 		ClearDatabase();
 	} 
@@ -134,10 +151,50 @@ void envokeFunction(string i)
 	// }
 }
 
+WLSGRA012::Student findStudent(string studentNumber){
+	WLSGRA012::Student s("", "", "", "");
+	for (int i = 0; i < savedStudents.size(); i++){
+		if (studentNumber == savedStudents[i].GetStudentNumber()){
+			//student numbers match
+			s = savedStudents[i];
+			break;
+		}
+	}
+	return s;
+}
+
+void gradeStudent(WLSGRA012::Student s){
+	//will print the average of the student record
+	//convert string to char array
+	char val[1024];
+	strcpy(val, s.GetClassRecord().c_str());
+
+	//convert char array to vector<int>
+	vector<int> values;
+	int i = 0;
+	int counter = 0;
+	char* point;
+	point = strtok(val, " ");
+
+	while (point != NULL){
+		// cout << atoi(point) << endl;
+		i+=atoi(point);
+		counter++;
+		point = strtok(NULL, " ");
+	}
+
+	cout << i << endl;
+
+	system("clear");
+	printUILine();
+	cout << s.GetStudentNumber() << " was graded averaging: " << i/counter << endl;
+	printUILine();
+}
+
 void addRecordToVector(WLSGRA012::Student s){
-	for (int i = i; i < savedStudents.size(); i++){
+	for (int i = 0; i < savedStudents.size(); i++){
 		WLSGRA012::Student t = savedStudents[i];
-		if (s.GetName() == t.GetName() && s.GetSurname() == t.GetSurname() && s.GetStudentNumber() == t.GetStudentNumber()){
+		if (s.GetStudentNumber() == t.GetStudentNumber()){
 			system("clear");
 			printUILine();
 			cout << "Student:" << s.GetInfo() << "was not added! Duplicate found." << endl;
